@@ -1,6 +1,44 @@
 {% extends "basefront.html.twig" %}
-
 {% block body %}
-<h1>Page des voyages</h1>
+    <table class="table table-striped">
+        <tread>
+            <tr>
+                <th class="text-left" scope="col">Ville</th>
+                <th class="text-left" scope="col">Pays</th>
+                <th class="text-left" scope="col">Note</th>
+                <th class="text-left" scope="col">Date</th>
+            </tr>
+        </tread>
+        <tbody>
+    {% for visite in visites %}
+        <tr>
+            <td>
+                <h5 class="text-primary">
+                    <a href="#">{{ visite.ville }}</a>
+                </h5>
+            </td>
+            <td>
+                {{ visite.pays }}
+            </td>
+            <td>
+                <strong>
+                    {%  if visite.note <10 %}
+                        <div class="text-danger">
+                            {{ visite.note }}/20
+                        </div>
+                    {% else %}
+                        <div class="text-success">
+                            {{ visite.note }}/20
+                        </div>
+                    {% endif %}
+                </strong>
+            </td>
+            <td>
+                {{ visite.datecreation }}
+            </td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
 

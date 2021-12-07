@@ -47,6 +47,11 @@ class Visite
      */
     private $tempmax;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $pays;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -64,9 +69,9 @@ class Visite
         return $this;
     }
 
-    public function getDatecreation(): ?\DateTimeInterface
+    public function getDatecreation(): string
     {
-        return $this->datecreation;
+        return $this->datecreation->format (('d/m/Y'));
     }
 
     public function setDatecreation(?\DateTimeInterface $datecreation): self
@@ -120,6 +125,18 @@ class Visite
     public function setTempmax(?int $tempmax): self
     {
         $this->tempmax = $tempmax;
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(string $pays): self
+    {
+        $this->pays = $pays;
 
         return $this;
     }
