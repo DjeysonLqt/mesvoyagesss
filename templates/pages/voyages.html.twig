@@ -3,7 +3,11 @@
     <table class="table table-striped">
         <tread>
             <tr>
-                <th class="text-left" scope="col">Ville</th>
+                <th class="text-left" scope="col">
+                    Ville
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'ASC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true"><</a>
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'DESC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">></a>
+                </th>
                 <th class="text-left" scope="col">Pays</th>
                 <th class="text-left" scope="col">Note</th>
                 <th class="text-left" scope="col">Date</th>
