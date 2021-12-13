@@ -3,14 +3,20 @@
     <table class="table table-striped">
         <tread>
             <tr>
-                <th class="text-left" scope="col">
+                <th class="text-left align-top" scope="col">
                     Ville
                     <a href="{{ path('voyages.sort', {champ:'ville', ordre:'ASC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true"><</a>
                     <a href="{{ path('voyages.sort', {champ:'ville', ordre:'DESC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">></a>
+                    <form class="form-inline mt-1" methtod="POST" action="{{ path('voyages.findallequal', {champ:'ville'}) }}">
+                        <div class="form-group mr-1 mb-2">
+                            <input type="text" class="sm" name="recherche">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2 btn-sm">Filtrer</button>
+                    </form>
                 </th>
-                <th class="text-left" scope="col">Pays</th>
-                <th class="text-left" scope="col">Note</th>
-                <th class="text-left" scope="col">Date</th>
+                <th class="text-left align-top" scope="col">Pays</th>
+                <th class="text-left align-top" scope="col">Note</th>
+                <th class="text-left align-top" scope="col">Date</th>
             </tr>
         </tread>
         <tbody>
