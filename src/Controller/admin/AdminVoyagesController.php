@@ -88,4 +88,27 @@ class AdminVoyagesController extends AbstractController {
         
     }
     
+    /**
+     * @Route("/admin/ajout", name="admin.voyage.ajout")
+     * @param Request $request
+     * @return Response
+     */
+    public function ajout(Request $request): Response {
+        $visite = new Visite();
+        $formVisite = $this->createForm(VisiteType::class, $visite);
+        
+        $formVisite->handleRequest($request);
+        if($formVisite->isSubmitted() && $formVisite->isValid()) {
+            $this->om->persist($visite);
+            $this->om->flush();
+        return $this->redirectToRoute('admin.voyages');
+    }
+        
+        return $this->render("admin/admin.voyage.ajout.html.twig", [
+            'visite' => $visite,
+            'formvisite' => $formVisite->createView() 
+        ]);
+        
+    }
+    
 }

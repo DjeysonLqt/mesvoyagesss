@@ -1,5 +1,8 @@
 {% extends "baseadmin.html.twig" %}
 {% block body %}
+    <p class="text-right">
+        <a href="{{ path('admin.voyage.ajout') }}" class="btn btn-primary"> Ajouter une nouvelle visite </a>
+    </p>
     <table class="table table-striped">
            <thead>
                <tr>
